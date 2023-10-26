@@ -5,7 +5,7 @@ pipeline{
         stage("Git Checkout"){
             steps{
                 gitCheckout{
-                    branch: 'main'
+                    branch: 'main',
                     url: 'https://github.com/01AT/Jenkins-CICD.git'
                     }
 
