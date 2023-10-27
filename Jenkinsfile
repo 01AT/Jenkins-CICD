@@ -57,7 +57,7 @@ pipeline{
             when{ expression { params.action == 'create'}}
             steps{
                 script{
-                    mvnbuild()
+                    mavenbuild()
                 }
 
             }
