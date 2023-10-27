@@ -19,7 +19,7 @@ pipeline{
 
             }
         }
-        tage('Maven Integration Test'){
+        stage('Maven Integration Test'){
             steps{
                 script{
                     mvnIntegrationTest()
