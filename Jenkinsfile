@@ -5,9 +5,8 @@ pipeline{
         choice(name: 'action', choices: 'create/ndelete', description: 'Choose create or delete')
     }
     stages{
-
-        when{ expression { param.action == 'create'}}
         stage('Git Checkout'){
+            when{ expression { param.action == 'create'}}
             steps{
                 gitCheckout(
                     branch: "main",
@@ -17,7 +16,7 @@ pipeline{
             }
         }
         stage('Unit Test Maven'){
-        when{ expression { param.action == 'create'}}    
+            when{ expression { param.action == 'create'}}    
             steps{
                 script{
                     mvntest()
@@ -26,7 +25,7 @@ pipeline{
             }
         }
         stage('Maven Integration Test'){
-        when{ expression { param.action == 'create'}}
+            when{ expression { param.action == 'create'}}
             steps{
                 script{
                     mvnIntegrationTest()
@@ -35,7 +34,7 @@ pipeline{
             }
         }
         stage('Static Code Analysis'){
-        when{ expression { param.action == 'create'}}
+            when{ expression { param.action == 'create'}}
             steps{
                 script{
                     staticcodeanalysis()
